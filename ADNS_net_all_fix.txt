@@ -1,0 +1,9 @@
+Fix for update_dns_rules.pl
+
+ # Sanitise safe_subnet starts
+    my $net_all="0.0.0.0/0;";
+    $safe_subnets .= $net_all;
+    print STDERR " In sanitise Before :: $safe_subnets ::\n";
+    $safe_subnets =~ s/$net_all//g;
+    print STDERR " After :: $safe_subnets \n";
+    # Sanitise safe_subnet ends
